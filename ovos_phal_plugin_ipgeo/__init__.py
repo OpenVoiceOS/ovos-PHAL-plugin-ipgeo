@@ -1,5 +1,7 @@
 import requests
 from ovos_plugin_manager.phal import PHALPlugin
+from ovos_utils.configuration import get_webcache_location, LocalConf
+from ovos_utils.messagebus import Message
 
 
 class IPGeoPlugin(PHALPlugin):
@@ -7,14 +9,22 @@ class IPGeoPlugin(PHALPlugin):
         super().__init__(bus, "ip_geolocation")
         self.location = {}
         self.on_reset()  # get initial location data
+
+        self.web_config = LocalConf(get_webcache_location())
         self.bus.on("mycroft.internet.connected", self.on_reset)
 
     def on_reset(self, message=None):
+        # we update the remote config to allow
+        # both backend and user config to take precedence
+        # over ip geolocation
+        if self.web_config.get("location"):
+            return
         # geolocate from ip address
         try:
             self.location = self.ip_geolocate()
-            # TODO update config
-            self.emit("location", self.location)
+            self.web_config["location"] = self.location
+            self.web_config.store()
+            self.bus.emit(Message("configuration.updated"))
         except:
             pass
 
