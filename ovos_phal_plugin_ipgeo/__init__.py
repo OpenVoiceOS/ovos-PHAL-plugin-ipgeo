@@ -8,10 +8,9 @@ class IPGeoPlugin(PHALPlugin):
     def __init__(self, bus=None, config=None):
         super().__init__(bus, "ovos-phal-plugin-ipgeo", config)
         self.location = {}
-        self.on_reset()  # get initial location data
-
         self.web_config = LocalConf(get_webcache_location())
         self.bus.on("mycroft.internet.connected", self.on_reset)
+        self.on_reset()  # get initial location data
 
     def on_reset(self, message=None):
         # we update the remote config to allow
