@@ -5,8 +5,8 @@ from ovos_utils.messagebus import Message
 
 
 class IPGeoPlugin(PHALPlugin):
-    def __init__(self, bus=None):
-        super().__init__(bus, "ip_geolocation")
+    def __init__(self, bus=None, config=None):
+        super().__init__(bus, "ovos-phal-plugin-ipgeo", config)
         self.location = {}
         self.on_reset()  # get initial location data
 
