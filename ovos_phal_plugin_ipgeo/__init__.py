@@ -17,7 +17,8 @@ class IPGeoPlugin(PHALPlugin):
         # we update the remote config to allow
         # both backend and user config to take precedence
         # over ip geolocation
-        if self.web_config.get("location"):
+        if self.web_config.get("location") and \
+                not message or not message.data.get('overwrite'):
             return
         # geolocate from ip address
         try:
@@ -25,6 +26,9 @@ class IPGeoPlugin(PHALPlugin):
             self.web_config["location"] = self.location
             self.web_config.store()
             self.bus.emit(Message("configuration.updated"))
+            if message:
+                self.bus.emit(message.response(
+                    data={'location': self.location}))
         except:
             pass
 
