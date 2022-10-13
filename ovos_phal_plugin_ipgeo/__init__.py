@@ -10,6 +10,7 @@ class IPGeoPlugin(PHALPlugin):
         self.location = {}
         self.web_config = LocalConf(get_webcache_location())
         self.bus.on("mycroft.internet.connected", self.on_reset)
+        self.bus.on("ovos.ipgeo.update", self.on_reset)
         self.on_reset()  # get initial location data
 
     def on_reset(self, message=None):
