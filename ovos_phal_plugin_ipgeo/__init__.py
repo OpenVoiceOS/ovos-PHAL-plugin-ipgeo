@@ -18,7 +18,7 @@ class IPGeoPlugin(PHALPlugin):
         # both backend and user config to take precedence
         # over ip geolocation
         if self.web_config.get("location") and \
-                not message or not message.data.get('overwrite'):
+                (message is None or not message.data.get('overwrite')):
             return
         # geolocate from ip address
         try:
