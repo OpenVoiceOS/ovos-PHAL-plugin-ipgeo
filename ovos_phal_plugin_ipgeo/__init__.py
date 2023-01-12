@@ -4,6 +4,7 @@ from ovos_plugin_manager.phal import PHALPlugin
 from ovos_config.config import LocalConf
 from ovos_config.locations import get_webcache_location
 from ovos_utils.messagebus import Message
+from ovos_utils.log import LOG
 from ovos_utils import classproperty
 from ovos_utils.process_utils import RuntimeRequirements
 
@@ -32,18 +33,21 @@ class IPGeoPlugin(PHALPlugin):
         # over ip geolocation
         if self.web_config.get("location") and \
                 (message is None or not message.data.get('overwrite')):
+            LOG.debug("Skipping overwrite of existing location")
             return
         # geolocate from ip address
         try:
-            self.location = self.ip_geolocate()
-            self.web_config["location"] = self.location
+            location = self.ip_geolocate()
+            LOG.info(f"Got location: {location}")
+            self.web_config["location"] = location
             self.web_config.store()
             self.bus.emit(Message("configuration.updated"))
             if message:
+                LOG.debug("Emitting location update response")
                 self.bus.emit(message.response(
-                    data={'location': self.location}))
-        except:
-            pass
+                    data={'location': location}))
+        except Exception as e:
+            LOG.exception(e)
 
     @staticmethod
     def ip_geolocate(ip=None):
