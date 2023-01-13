@@ -15,6 +15,7 @@ class IPGeoPlugin(PHALPlugin):
         super().__init__(bus, "ovos-phal-plugin-ipgeo", config)
         self.location = {}
         self.web_config = LocalConf(get_webcache_location())
+        LOG.debug(f'web_config has keys: {self.web_config.keys()}')
         self.bus.on("mycroft.internet.connected", self.on_reset)
         self.bus.on("ovos.ipgeo.update", self.on_reset)
         self.on_reset()  # get initial location data
@@ -42,6 +43,7 @@ class IPGeoPlugin(PHALPlugin):
             LOG.info(f"Got location: {location}")
             self.web_config["location"] = location
             self.web_config.store()
+            LOG.debug(f"web_config stored with keys: {self.web_config.keys()}")
             self.bus.emit(Message("configuration.updated"))
             if message:
                 LOG.debug("Emitting location update response")
