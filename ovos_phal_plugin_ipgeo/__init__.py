@@ -7,6 +7,7 @@ from ovos_utils.messagebus import Message
 from ovos_utils.log import LOG
 from ovos_utils import classproperty
 from ovos_utils.process_utils import RuntimeRequirements
+from urllib3.exceptions import NewConnectionError
 
 
 class IPGeoPlugin(PHALPlugin):
@@ -46,6 +47,8 @@ class IPGeoPlugin(PHALPlugin):
                 LOG.debug("Emitting location update response")
                 self.bus.emit(message.response(
                     data={'location': location}))
+        except NewConnectionError as e:
+            LOG.error(e)
         except Exception as e:
             LOG.exception(e)
 
