@@ -47,10 +47,15 @@ class IPGeoPlugin(PHALPlugin):
                 LOG.debug("Emitting location update response")
                 self.bus.emit(message.response(
                     data={'location': self.location}))
+            return
         except NewConnectionError as e:
             LOG.error(e)
         except Exception as e:
             LOG.exception(e)
+        if message:
+            LOG.debug("Emitting error response")
+            self.bus.emit(message.response(
+                data={'error': True}))
 
     @staticmethod
     def ip_geolocate(ip=None):
