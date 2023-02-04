@@ -3,6 +3,8 @@ from ovos_plugin_manager.phal import PHALPlugin
 from ovos_config.config import LocalConf
 from ovos_config.locations import get_webcache_location
 from ovos_utils.messagebus import Message
+from ovos_utils import classproperty
+from ovos_utils.network_utils import NetworkRequirements
 
 
 class IPGeoPlugin(PHALPlugin):
@@ -13,6 +15,41 @@ class IPGeoPlugin(PHALPlugin):
         self.bus.on("mycroft.internet.connected", self.on_reset)
         self.bus.on("ovos.ipgeo.update", self.on_reset)
         self.on_reset()  # get initial location data
+
+    @classproperty
+    def network_requirements(self):
+        """ developers should override this if they do not require connectivity
+         some examples:
+         IOT plugin that controls devices via LAN could return:
+            scans_on_init = True
+            NetworkRequirements(internet_before_load=False,
+                                 network_before_load=scans_on_init,
+                                 requires_internet=False,
+                                 requires_network=True,
+                                 no_internet_fallback=True,
+                                 no_network_fallback=False)
+         online search plugin with a local cache:
+            has_cache = False
+            NetworkRequirements(internet_before_load=not has_cache,
+                                 network_before_load=not has_cache,
+                                 requires_internet=True,
+                                 requires_network=True,
+                                 no_internet_fallback=True,
+                                 no_network_fallback=True)
+         a fully offline plugin:
+            NetworkRequirements(internet_before_load=False,
+                                 network_before_load=False,
+                                 requires_internet=False,
+                                 requires_network=False,
+                                 no_internet_fallback=True,
+                                 no_network_fallback=True)
+        """
+        return NetworkRequirements(internet_before_load=True,
+                                   network_before_load=True,
+                                   requires_internet=True,
+                                   requires_network=True,
+                                   no_internet_fallback=False,
+                                   no_network_fallback=False)
 
     def on_reset(self, message=None):
         # we update the remote config to allow
