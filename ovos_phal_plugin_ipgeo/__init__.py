@@ -2,6 +2,8 @@ import requests
 from ovos_plugin_manager.phal import PHALPlugin
 from ovos_utils.configuration import get_webcache_location, LocalConf
 from ovos_utils.messagebus import Message
+from ovos_backend_client.api import GeolocationApi
+from ovos_backend_client.backends import BackendType
 
 
 class IPGeoPlugin(PHALPlugin):
@@ -34,25 +36,11 @@ class IPGeoPlugin(PHALPlugin):
 
     @staticmethod
     def ip_geolocate(ip=None):
-        if not ip or ip in ["0.0.0.0", "127.0.0.1"]:
-            ip = requests.get('https://api.ipify.org').text
-        fields = "status,country,countryCode,region,regionName,city,lat,lon,timezone,query"
-        data = requests.get("http://ip-api.com/json/" + ip,
-                            params={"fields": fields}).json()
-        region_data = {"code": data["region"],
-                       "name": data["regionName"],
-                       "country": {
-                           "code": data["countryCode"],
-                           "name": data["country"]}}
-        city_data = {"code": data["city"],
-                     "name": data["city"],
-                     "state": region_data}
-        timezone_data = {"code": data["timezone"],
-                         "name": data["timezone"]}
-        coordinate_data = {"latitude": float(data["lat"]),
-                           "longitude": float(data["lon"])}
-        return {"city": city_data,
-                "coordinate": coordinate_data,
-                "timezone": timezone_data}
-
-
+        try:
+            # configured backend may throw some errors if its down
+            api = GeolocationApi()
+            return api.get_ip_geolocation(ip)
+        except:
+            # force offline backend api (direct call)
+            api = GeolocationApi(backend_type=BackendType.OFFLINE)
+            return api.get_ip_geolocation(ip)

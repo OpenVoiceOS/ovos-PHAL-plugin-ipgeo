@@ -12,6 +12,7 @@ setup(
     license='Apache-2.0',
     packages=['ovos_phal_plugin_ipgeo'],
     install_requires=["ovos-plugin-manager>=0.0.1",
+                      "ovos-backend-client>=0.0.7a1",
                       "requests"],
     zip_safe=True,
     classifiers=[
