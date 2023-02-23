@@ -6,7 +6,7 @@ BASEDIR = os.path.abspath(os.path.dirname(__file__))
 
 def get_version():
     """ Find the version of the package"""
-    version_file = os.path.join(BASEDIR, 'ovos_PHAL_plugin_network_manager', 'version.py')
+    version_file = os.path.join(BASEDIR, 'ovos_phal_plugin_ipgeo', 'version.py')
     major, minor, build, alpha = (None, None, None, None)
     with open(version_file) as f:
         for line in f:
