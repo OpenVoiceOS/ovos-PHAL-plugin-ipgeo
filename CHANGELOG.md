@@ -1,8 +1,8 @@
 # Changelog
 
-## [Unreleased](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/HEAD)
+## [V0.0.1a1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/V0.0.1a1) (2023-02-23)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/2704ad015f8358e785ac82263df7080b12c34909...HEAD)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/2704ad015f8358e785ac82263df7080b12c34909...V0.0.1a1)
 
 **Fixed bugs:**
 
@@ -14,6 +14,7 @@
 
 **Merged pull requests:**
 
+- Add Packaging and Automation [\#8](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/pull/8) ([NeonDaniel](https://github.com/NeonDaniel))
 - Add bus handler to update geolocation [\#1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/pull/1) ([NeonDaniel](https://github.com/NeonDaniel))
 
 
