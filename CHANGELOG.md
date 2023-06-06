@@ -1,5 +1,17 @@
 # Changelog
 
+## [Unreleased](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/HEAD)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/V0.0.1...HEAD)
+
+**Merged pull requests:**
+
+- Update config import and dependency [\#9](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/pull/9) ([NeonDaniel](https://github.com/NeonDaniel))
+
+## [V0.0.1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/V0.0.1) (2023-02-23)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/V0.0.1a1...V0.0.1)
+
 ## [V0.0.1a1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/V0.0.1a1) (2023-02-23)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/2704ad015f8358e785ac82263df7080b12c34909...V0.0.1a1)
