@@ -1,6 +1,7 @@
 import requests
 from ovos_plugin_manager.phal import PHALPlugin
-from ovos_utils.configuration import get_webcache_location, LocalConf
+from ovos_config.config import LocalConf
+from ovos_config.locations import get_webcache_location
 from ovos_utils.messagebus import Message
 
 
