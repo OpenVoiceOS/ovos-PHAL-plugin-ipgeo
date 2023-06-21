@@ -1,8 +1,16 @@
 # Changelog
 
-## [Unreleased](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/HEAD)
+## [0.0.2a4](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/0.0.2a4) (2023-06-21)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/V0.0.2a2...HEAD)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/V0.0.2a3...0.0.2a4)
+
+**Merged pull requests:**
+
+- Update automation to shared actions [\#10](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/pull/10) ([NeonDaniel](https://github.com/NeonDaniel))
+
+## [V0.0.2a3](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/V0.0.2a3) (2023-06-21)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/V0.0.2a2...V0.0.2a3)
 
 **Merged pull requests:**
 
@@ -23,27 +31,6 @@
 **Merged pull requests:**
 
 - Update config import and dependency [\#9](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/pull/9) ([NeonDaniel](https://github.com/NeonDaniel))
-
-## [V0.0.1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/V0.0.1) (2023-02-23)
-
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/V0.0.1a1...V0.0.1)
-
-## [V0.0.1a1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/V0.0.1a1) (2023-02-23)
-
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/2704ad015f8358e785ac82263df7080b12c34909...V0.0.1a1)
-
-**Fixed bugs:**
-
-- Fix logic error in `on_reset` check [\#3](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/pull/3) ([NeonDaniel](https://github.com/NeonDaniel))
-
-**Closed issues:**
-
-- ipgeo plugin fails to load [\#2](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/issues/2)
-
-**Merged pull requests:**
-
-- Add Packaging and Automation [\#8](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/pull/8) ([NeonDaniel](https://github.com/NeonDaniel))
-- Add bus handler to update geolocation [\#1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/pull/1) ([NeonDaniel](https://github.com/NeonDaniel))
 
 
 
