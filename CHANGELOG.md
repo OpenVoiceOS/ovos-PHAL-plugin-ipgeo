@@ -2,7 +2,15 @@
 
 ## [Unreleased](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/HEAD)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/V0.0.1...HEAD)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/V0.0.2a1...HEAD)
+
+**Implemented enhancements:**
+
+- feat/network\_reqs [\#6](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/pull/6) ([JarbasAl](https://github.com/JarbasAl))
+
+## [V0.0.2a1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/V0.0.2a1) (2023-06-06)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/V0.0.1...V0.0.2a1)
 
 **Merged pull requests:**
 
