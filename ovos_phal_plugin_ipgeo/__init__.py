@@ -12,7 +12,6 @@ from ovos_utils.process_utils import RuntimeRequirements
 class IPGeoPlugin(PHALPlugin):
     def __init__(self, bus=None, config=None):
         super().__init__(bus, "ovos-phal-plugin-ipgeo", config)
-        self.location = {}
         self.web_config = LocalConf(get_webcache_location())
         self.bus.on("mycroft.internet.connected", self.on_reset)
         self.bus.on("ovos.ipgeo.update", self.on_reset)
@@ -37,15 +36,15 @@ class IPGeoPlugin(PHALPlugin):
             return
         # geolocate from ip address
         try:
-            self.location = self.location or self.ip_geolocate()
-            LOG.info(f"Got location: {self.location}")
-            self.web_config["location"] = self.location
+            location = self.ip_geolocate()
+            LOG.info(f"Got location: {location}")
+            self.web_config["location"] = location
             self.web_config.store()
             self.bus.emit(Message("configuration.updated"))
             if message:
                 LOG.debug("Emitting location update response")
                 self.bus.emit(message.response(
-                    data={'location': self.location}))
+                    data={'location': location}))
             return
         except ConnectionError as e:
             LOG.error(e)
