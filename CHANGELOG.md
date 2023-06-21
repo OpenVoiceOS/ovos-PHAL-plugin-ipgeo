@@ -2,7 +2,15 @@
 
 ## [Unreleased](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/HEAD)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/V0.0.2a1...HEAD)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/V0.0.2a2...HEAD)
+
+**Merged pull requests:**
+
+- Add logging to debug geolocation updates [\#5](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/pull/5) ([NeonDaniel](https://github.com/NeonDaniel))
+
+## [V0.0.2a2](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/V0.0.2a2) (2023-06-21)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/V0.0.2a1...V0.0.2a2)
 
 **Implemented enhancements:**
 
