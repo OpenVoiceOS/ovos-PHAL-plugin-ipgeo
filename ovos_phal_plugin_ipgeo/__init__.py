@@ -1,10 +1,11 @@
 import requests
+
 from ovos_plugin_manager.phal import PHALPlugin
 from ovos_config.config import LocalConf
 from ovos_config.locations import get_webcache_location
 from ovos_utils.messagebus import Message
 from ovos_utils import classproperty
-from ovos_utils.network_utils import NetworkRequirements
+from ovos_utils.process_utils import RuntimeRequirements
 
 
 class IPGeoPlugin(PHALPlugin):
@@ -17,7 +18,7 @@ class IPGeoPlugin(PHALPlugin):
         self.on_reset()  # get initial location data
 
     @classproperty
-    def network_requirements(self):
+    def runtime_requirements(self):
         """ developers should override this if they do not require connectivity
          some examples:
          IOT plugin that controls devices via LAN could return:
@@ -44,7 +45,7 @@ class IPGeoPlugin(PHALPlugin):
                                  no_internet_fallback=True,
                                  no_network_fallback=True)
         """
-        return NetworkRequirements(internet_before_load=True,
+        return RuntimeRequirements(internet_before_load=True,
                                    network_before_load=True,
                                    requires_internet=True,
                                    requires_network=True,
