@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.0.2](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/0.0.2) (2023-06-22)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/0.0.2a4...0.0.2)
+
+**Closed issues:**
+
+- Publish to PyPI [\#4](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/issues/4)
+
 ## [0.0.2a4](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/0.0.2a4) (2023-06-21)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/V0.0.2a3...0.0.2a4)
