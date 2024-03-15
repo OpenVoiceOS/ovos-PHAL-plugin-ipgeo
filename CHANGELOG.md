@@ -1,44 +1,12 @@
 # Changelog
 
-## [0.0.2](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/0.0.2) (2023-06-22)
+## [0.0.3a1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/0.0.3a1) (2024-03-15)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/0.0.2a4...0.0.2)
-
-**Closed issues:**
-
-- Publish to PyPI [\#4](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/issues/4)
-
-## [0.0.2a4](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/0.0.2a4) (2023-06-21)
-
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/V0.0.2a3...0.0.2a4)
-
-**Merged pull requests:**
-
-- Update automation to shared actions [\#10](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/pull/10) ([NeonDaniel](https://github.com/NeonDaniel))
-
-## [V0.0.2a3](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/V0.0.2a3) (2023-06-21)
-
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/V0.0.2a2...V0.0.2a3)
-
-**Merged pull requests:**
-
-- Add logging to debug geolocation updates [\#5](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/pull/5) ([NeonDaniel](https://github.com/NeonDaniel))
-
-## [V0.0.2a2](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/V0.0.2a2) (2023-06-21)
-
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/V0.0.2a1...V0.0.2a2)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/0.0.2...0.0.3a1)
 
 **Implemented enhancements:**
 
-- feat/network\_reqs [\#6](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/pull/6) ([JarbasAl](https://github.com/JarbasAl))
-
-## [V0.0.2a1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/V0.0.2a1) (2023-06-06)
-
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/V0.0.1...V0.0.2a1)
-
-**Merged pull requests:**
-
-- Update config import and dependency [\#9](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/pull/9) ([NeonDaniel](https://github.com/NeonDaniel))
+- refactor/ipgeo\_from\_backend [\#7](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/pull/7) ([JarbasAl](https://github.com/JarbasAl))
 
 
 
