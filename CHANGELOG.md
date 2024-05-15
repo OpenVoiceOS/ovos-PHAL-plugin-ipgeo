@@ -1,5 +1,14 @@
 # Changelog
 
+## [0.0.3a2](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/0.0.3a2) (2024-05-15)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/0.0.3a1...0.0.3a2)
+
+**Fixed bugs:**
+
+- Unhandled Connection Refused Errors [\#12](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/issues/12)
+- Better exception handling around geolocation failures [\#13](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/pull/13) ([NeonDaniel](https://github.com/NeonDaniel))
+
 ## [0.0.3a1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/0.0.3a1) (2024-03-15)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/0.0.2...0.0.3a1)
