@@ -39,6 +39,8 @@ class IPGeoPlugin(PHALPlugin):
         # geolocate from ip address
         try:
             location = self.ip_geolocate()
+            if not location:
+                raise ValueError(f"Got empty location: {location}")
             LOG.info(f"Got location: {location}")
             self.web_config["location"] = location
             self.web_config.store()
@@ -76,4 +78,6 @@ class IPGeoPlugin(PHALPlugin):
                 return (GeolocationApi(backend_type=BackendType.OFFLINE)
                         .get_ip_geolocation(ip))
         except Exception as e:
-            LOG.exception("Geolocation offline backend fallback failed")
+            LOG.error(e)
+            # Raise this exception since we won't return anything valid
+            raise e
