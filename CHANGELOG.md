@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.0a1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/0.1.0a1) (2024-09-11)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/0.0.3a2...0.1.0a1)
+
+**Merged pull requests:**
+
+- feat:semver [\#15](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/pull/15) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.0.3a2](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/0.0.3a2) (2024-05-15)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/0.0.3a1...0.0.3a2)
