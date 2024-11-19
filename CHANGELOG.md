@@ -1,16 +1,16 @@
 # Changelog
 
-## [0.1.1a1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/0.1.1a1) (2024-09-14)
+## [0.1.2a1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/0.1.2a1) (2024-11-19)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/V0.1.0...0.1.1a1)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/V0.1.1...0.1.2a1)
 
 **Merged pull requests:**
 
-- fix:versions [\#17](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/pull/17) ([JarbasAl](https://github.com/JarbasAl))
+- feature: deprecate backend client [\#19](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/pull/19) ([JarbasAl](https://github.com/JarbasAl))
 
-## [V0.1.0](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/V0.1.0) (2024-09-11)
+## [V0.1.1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/V0.1.1) (2024-09-14)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/0.1.0...V0.1.0)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/0.1.1...V0.1.1)
 
 
 
