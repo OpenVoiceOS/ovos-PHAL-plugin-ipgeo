@@ -1,13 +1,12 @@
-import requests
-
-from ovos_plugin_manager.phal import PHALPlugin
+from ovos_bus_client.util import get_message_lang
 from ovos_config.config import LocalConf
+from ovos_config import Configuration
 from ovos_config.locations import get_webcache_location
-from ovos_utils.messagebus import Message
-from ovos_backend_client.api import GeolocationApi
-from ovos_backend_client.backends import BackendType
-from ovos_utils.log import LOG
+from ovos_plugin_manager.phal import PHALPlugin
 from ovos_utils import classproperty
+from ovos_utils.geolocation import get_ip_geolocation
+from ovos_utils.log import LOG
+from ovos_utils.messagebus import Message
 from ovos_utils.process_utils import RuntimeRequirements
 
 
@@ -38,46 +37,21 @@ class IPGeoPlugin(PHALPlugin):
             return
         # geolocate from ip address
         try:
-            location = self.ip_geolocate()
+            location = get_ip_geolocation(lang=get_message_lang(message) or Configuration().get("lang", "en"))
             if not location:
-                raise ValueError(f"Got empty location: {location}")
-            LOG.info(f"Got location: {location}")
+                raise ValueError("IP geolocation returned empty location")
+            LOG.info(f"IP geolocation: {location}")
             self.web_config["location"] = location
             self.web_config.store()
-            LOG.debug(f"Updated {self.web_config.path}")
+            LOG.debug(f"Updated config: {self.web_config.path}")
             self.bus.emit(Message("configuration.updated"))
             if message:
-                LOG.debug("Emitting location update response")
-                self.bus.emit(message.response(
-                    data={'location': location}))
+                self.bus.emit(message.response(data={'location': location}))
             return
         except ConnectionError as e:
             LOG.error(e)
         except Exception as e:
             LOG.exception(e)
         if message:
-            LOG.debug("Emitting error response")
-            self.bus.emit(message.response(
-                data={'error': True}))
+            self.bus.emit(message.response(data={'error': True}))
 
-    @staticmethod
-    def ip_geolocate(ip=None):
-        try:
-            # configured backend may throw some errors if its down
-            api = GeolocationApi()
-        except Exception as e:
-            LOG.exception("Failed to create Geolocation API")
-            api = GeolocationApi(backend_type=BackendType.OFFLINE)
-        try:
-            return api.get_ip_geolocation(ip)
-        except Exception as e:
-            LOG.exception("Backend Geolocation API error!")
-        try:
-            # force offline backend api (direct call)
-            if api.backend_type != BackendType.OFFLINE:
-                return (GeolocationApi(backend_type=BackendType.OFFLINE)
-                        .get_ip_geolocation(ip))
-        except Exception as e:
-            LOG.error(e)
-            # Raise this exception since we won't return anything valid
-            raise e
