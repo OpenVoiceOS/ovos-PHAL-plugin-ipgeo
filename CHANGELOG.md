@@ -1,12 +1,16 @@
 # Changelog
 
-## [0.1.5a1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/0.1.5a1) (2025-03-19)
+## [0.1.6a1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/0.1.6a1) (2025-06-08)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/0.1.4...0.1.5a1)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/V0.1.5...0.1.6a1)
 
 **Merged pull requests:**
 
-- fix: automations [\#24](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/pull/24) ([JarbasAl](https://github.com/JarbasAl))
+- fix: opm 1.X.X compat [\#26](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/pull/26) ([JarbasAl](https://github.com/JarbasAl))
+
+## [V0.1.5](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/V0.1.5) (2025-03-19)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/0.1.5...V0.1.5)
 
 
 
