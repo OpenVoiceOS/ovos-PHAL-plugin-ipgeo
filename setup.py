@@ -48,7 +48,7 @@ def get_description():
 
 PLUGIN_ENTRY_POINT = 'ovos-phal-plugin-ipgeo=ovos_phal_plugin_ipgeo:IPGeoPlugin'
 setup(
-    name='ovos-phal-plugin-ipgeo',
+    name='ovos_phal_plugin_ipgeo',
     version=get_version(),
     description='A PHAL plugin for mycroft',
     long_description=get_description(),
