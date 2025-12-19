@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.8a2](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/0.1.8a2) (2025-12-19)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/0.1.8a1...0.1.8a2)
+
+**Merged pull requests:**
+
+- chore\(deps\): update dependency python to 3.14 [\#31](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/pull/31) ([renovate[bot]](https://github.com/apps/renovate))
+
 ## [0.1.8a1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/0.1.8a1) (2025-12-18)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/V0.1.7...0.1.8a1)
