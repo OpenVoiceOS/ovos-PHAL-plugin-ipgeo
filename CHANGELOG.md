@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.9a1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/0.1.9a1) (2026-06-16)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/0.1.8a3...0.1.9a1)
+
+**Merged pull requests:**
+
+- fix: require ovos-plugin-manager\>=2.1.0 for opm.\* entry points and cap ovos-\* deps at next major [\#38](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/pull/38) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.1.8a3](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/0.1.8a3) (2026-06-16)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/0.1.8a2...0.1.8a3)
