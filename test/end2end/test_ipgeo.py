@@ -15,18 +15,13 @@
 
 Tests that the plugin emits ``configuration.updated`` after a successful
 geolocation lookup, using a mocked ``get_ip_geolocation`` to avoid real
-network calls.
-
-Note on skip logic in ``on_reset``:
-  ``on_reset`` returns early when ``self.web_config.get("location")`` is truthy
-  AND the trigger message does NOT have ``data['overwrite'] == True``.
-  Tests reset ``plugin.web_config`` after init so subsequent calls always run.
+network calls and a mocked ``update_mycroft_config`` to avoid writing to disk.
 """
 from __future__ import annotations
 
 import time
 from unittest import TestCase
-from unittest.mock import MagicMock, patch
+from unittest.mock import patch
 
 from ovos_bus_client.message import Message
 from ovos_utils.fakebus import FakeBus
@@ -58,17 +53,9 @@ class TestIPGeoPlugin(TestCase):
         """Create an IPGeoPlugin with mocked config and geolocation."""
         from ovos_phal_plugin_ipgeo import IPGeoPlugin
 
-        mock_web_config = MagicMock()
-        mock_web_config.get.return_value = None  # no location cached
-
-        with patch("ovos_phal_plugin_ipgeo.LocalConf", return_value=mock_web_config), \
-             patch("ovos_phal_plugin_ipgeo.get_webcache_location", return_value="/tmp/test"), \
+        with patch("ovos_phal_plugin_ipgeo.update_mycroft_config"), \
              patch("ovos_phal_plugin_ipgeo.get_ip_geolocation", return_value=_MOCK_LOCATION):
             plugin = IPGeoPlugin(bus=self.bus)
-
-        # Reset web_config after init so on_reset() always tries to geolocate
-        plugin.web_config = MagicMock()
-        plugin.web_config.get.return_value = None
         return plugin
 
     def test_on_reset_emits_configuration_updated(self) -> None:
@@ -79,7 +66,8 @@ class TestIPGeoPlugin(TestCase):
             Message.deserialize(m) if isinstance(m, str) else m
         ))
 
-        with patch("ovos_phal_plugin_ipgeo.get_ip_geolocation", return_value=_MOCK_LOCATION):
+        with patch("ovos_phal_plugin_ipgeo.update_mycroft_config"), \
+             patch("ovos_phal_plugin_ipgeo.get_ip_geolocation", return_value=_MOCK_LOCATION):
             plugin.on_reset(Message("mycroft.internet.connected"))
         time.sleep(0.1)
 
@@ -94,7 +82,8 @@ class TestIPGeoPlugin(TestCase):
             Message.deserialize(m) if isinstance(m, str) else m
         ))
 
-        with patch("ovos_phal_plugin_ipgeo.get_ip_geolocation", return_value=_MOCK_LOCATION):
+        with patch("ovos_phal_plugin_ipgeo.update_mycroft_config"), \
+             patch("ovos_phal_plugin_ipgeo.get_ip_geolocation", return_value=_MOCK_LOCATION):
             plugin.on_reset(Message("ovos.ipgeo.update"))
         time.sleep(0.1)
 
