@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.9a3](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/0.1.9a3) (2026-09-02)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/0.1.9a2...0.1.9a3)
+
+**Merged pull requests:**
+
+- refactor: store geolocation in the assistant config layer [\#40](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/pull/40) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.1.9a2](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/0.1.9a2) (2026-07-31)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/0.1.9a1...0.1.9a2)
