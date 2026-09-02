@@ -18,9 +18,9 @@ geolocation lookup, using a mocked ``get_ip_geolocation`` to avoid real
 network calls.
 
 Note on skip logic in ``on_reset``:
-  ``on_reset`` returns early when ``self.web_config.get("location")`` is truthy
-  AND the trigger message does NOT have ``data['overwrite'] == True``.
-  Tests reset ``plugin.web_config`` after init so subsequent calls always run.
+  ``on_reset`` returns early when ``self.assistant_config.get("location")`` is
+  truthy AND the trigger message does NOT have ``data['overwrite'] == True``.
+  Tests reset ``plugin.assistant_config`` after init so subsequent calls always run.
 """
 from __future__ import annotations
 
@@ -58,17 +58,16 @@ class TestIPGeoPlugin(TestCase):
         """Create an IPGeoPlugin with mocked config and geolocation."""
         from ovos_phal_plugin_ipgeo import IPGeoPlugin
 
-        mock_web_config = MagicMock()
-        mock_web_config.get.return_value = None  # no location cached
+        mock_assistant_config = MagicMock()
+        mock_assistant_config.get.return_value = None  # no location cached
 
-        with patch("ovos_phal_plugin_ipgeo.LocalConf", return_value=mock_web_config), \
-             patch("ovos_phal_plugin_ipgeo.get_webcache_location", return_value="/tmp/test"), \
+        with patch("ovos_phal_plugin_ipgeo.AssistantConfig", return_value=mock_assistant_config), \
              patch("ovos_phal_plugin_ipgeo.get_ip_geolocation", return_value=_MOCK_LOCATION):
             plugin = IPGeoPlugin(bus=self.bus)
 
-        # Reset web_config after init so on_reset() always tries to geolocate
-        plugin.web_config = MagicMock()
-        plugin.web_config.get.return_value = None
+        # Reset assistant_config after init so on_reset() always tries to geolocate
+        plugin.assistant_config = MagicMock()
+        plugin.assistant_config.get.return_value = None
         return plugin
 
     def test_on_reset_emits_configuration_updated(self) -> None:
@@ -117,3 +116,37 @@ class TestIPGeoPlugin(TestCase):
         assert "configuration.updated" not in types, (
             f"Should not emit configuration.updated on error, got: {types}"
         )
+
+    def test_on_reset_writes_location_to_assistant_config(self) -> None:
+        """A successful geolocation lookup is persisted to the assistant config layer."""
+        plugin = self._make_plugin()
+
+        with patch("ovos_phal_plugin_ipgeo.get_ip_geolocation", return_value=_MOCK_LOCATION):
+            plugin.on_reset(Message("mycroft.internet.connected"))
+
+        assert plugin.assistant_config.__setitem__.call_args == (("location", _MOCK_LOCATION),), (
+            "Expected the geolocation result to be written to assistant_config['location']"
+        )
+        plugin.assistant_config.store.assert_called_once()
+
+    def test_on_reset_does_not_overwrite_existing_location_without_overwrite_flag(self) -> None:
+        """An existing location in the assistant config is left untouched unless overwrite=True."""
+        plugin = self._make_plugin()
+        plugin.assistant_config.get.return_value = {"city": {"name": "Existing City"}}
+
+        with patch("ovos_phal_plugin_ipgeo.get_ip_geolocation", return_value=_MOCK_LOCATION):
+            plugin.on_reset(Message("mycroft.internet.connected"))
+
+        plugin.assistant_config.__setitem__.assert_not_called()
+        plugin.assistant_config.store.assert_not_called()
+
+    def test_on_reset_overwrites_existing_location_with_overwrite_flag(self) -> None:
+        """An existing location IS overwritten when the trigger message sets overwrite=True."""
+        plugin = self._make_plugin()
+        plugin.assistant_config.get.return_value = {"city": {"name": "Existing City"}}
+
+        with patch("ovos_phal_plugin_ipgeo.get_ip_geolocation", return_value=_MOCK_LOCATION):
+            plugin.on_reset(Message("ovos.ipgeo.update", {"overwrite": True}))
+
+        assert plugin.assistant_config.__setitem__.call_args == (("location", _MOCK_LOCATION),)
+        plugin.assistant_config.store.assert_called_once()

@@ -1,7 +1,6 @@
 from ovos_bus_client.util import get_message_lang
-from ovos_config.config import LocalConf
+from ovos_config.models import AssistantConfig
 from ovos_config import Configuration
-from ovos_config.locations import get_webcache_location
 from ovos_plugin_manager.phal import PHALPlugin
 from ovos_utils import classproperty
 from ovos_utils.geolocation import get_ip_geolocation
@@ -13,7 +12,7 @@ from ovos_utils.process_utils import RuntimeRequirements
 class IPGeoPlugin(PHALPlugin):
     def __init__(self, bus=None, config=None):
         super().__init__(bus, "ovos-phal-plugin-ipgeo", config)
-        self.web_config = LocalConf(get_webcache_location())
+        self.assistant_config = AssistantConfig()
         self.bus.on("mycroft.internet.connected", self.on_reset)
         self.bus.on("ovos.ipgeo.update", self.on_reset)
         self.on_reset()  # get initial location data
@@ -28,10 +27,10 @@ class IPGeoPlugin(PHALPlugin):
                                    no_network_fallback=False)
 
     def on_reset(self, message=None):
-        # we update the remote config to allow
-        # both backend and user config to take precedence
-        # over ip geolocation
-        if self.web_config.get("location") and \
+        # the detected location is written to the assistant config layer,
+        # which is loaded below the user config, so any location the user
+        # has set explicitly always takes precedence over ip geolocation
+        if self.assistant_config.get("location") and \
                 (message is None or not message.data.get('overwrite')):
             LOG.debug("Skipping overwrite of existing location")
             return
@@ -41,9 +40,9 @@ class IPGeoPlugin(PHALPlugin):
             if not location:
                 raise ValueError("IP geolocation returned empty location")
             LOG.info(f"IP geolocation: {location}")
-            self.web_config["location"] = location
-            self.web_config.store()
-            LOG.debug(f"Updated config: {self.web_config.path}")
+            self.assistant_config["location"] = location
+            self.assistant_config.store()
+            LOG.debug(f"Updated config: {self.assistant_config.path}")
             self.bus.emit(Message("configuration.updated"))
             if message:
                 self.bus.emit(message.response(data={'location': location}))
