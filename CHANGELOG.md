@@ -1,16 +1,72 @@
 # Changelog
 
-## [0.1.7a1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/0.1.7a1) (2025-11-05)
+## [0.1.9a5](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/0.1.9a5) (2026-09-04)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/V0.1.6...0.1.7a1)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/0.1.9a4...0.1.9a5)
 
 **Merged pull requests:**
 
-- Update requirements.txt [\#28](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/pull/28) ([JarbasAl](https://github.com/JarbasAl))
+- ci: restore gh-automations dev reference [\#47](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/pull/47) ([JarbasAl](https://github.com/JarbasAl))
 
-## [V0.1.6](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/V0.1.6) (2025-06-08)
+## [0.1.9a4](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/0.1.9a4) (2026-09-04)
 
-[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/0.1.6...V0.1.6)
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/0.1.9a3...0.1.9a4)
+
+**Merged pull requests:**
+
+- ci: canary gh-automations\#104 \(supersede release proposals\) [\#45](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/pull/45) ([JarbasAl](https://github.com/JarbasAl))
+
+## [0.1.9a3](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/0.1.9a3) (2026-09-02)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/0.1.9a2...0.1.9a3)
+
+**Merged pull requests:**
+
+- refactor: store geolocation in the assistant config layer [\#40](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/pull/40) ([JarbasAl](https://github.com/JarbasAl))
+
+## [0.1.9a2](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/0.1.9a2) (2026-07-31)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/0.1.9a1...0.1.9a2)
+
+**Merged pull requests:**
+
+- docs: rewrite README in Simplified Technical English [\#41](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/pull/41) ([JarbasAl](https://github.com/JarbasAl))
+
+## [0.1.9a1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/0.1.9a1) (2026-06-16)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/0.1.8a3...0.1.9a1)
+
+**Merged pull requests:**
+
+- fix: require ovos-plugin-manager\>=2.1.0 for opm.\* entry points and cap ovos-\* deps at next major [\#38](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/pull/38) ([JarbasAl](https://github.com/JarbasAl))
+
+## [0.1.8a3](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/0.1.8a3) (2026-06-16)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/0.1.8a2...0.1.8a3)
+
+**Merged pull requests:**
+
+- chore: add missing shared CI workflows [\#36](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/pull/36) ([JarbasAl](https://github.com/JarbasAl))
+
+## [0.1.8a2](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/0.1.8a2) (2025-12-19)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/0.1.8a1...0.1.8a2)
+
+**Merged pull requests:**
+
+- chore\(deps\): update dependency python to 3.14 [\#31](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/pull/31) ([renovate[bot]](https://github.com/apps/renovate))
+
+## [0.1.8a1](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/0.1.8a1) (2025-12-18)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/V0.1.7...0.1.8a1)
+
+**Merged pull requests:**
+
+- chore: Configure Renovate [\#30](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/pull/30) ([renovate[bot]](https://github.com/apps/renovate))
+
+## [V0.1.7](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/V0.1.7) (2025-11-05)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/0.1.7...V0.1.7)
 
 
 
