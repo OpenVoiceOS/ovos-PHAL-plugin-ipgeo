@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.1.9a4](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/0.1.9a4) (2026-09-04)
+
+[Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/0.1.9a3...0.1.9a4)
+
+**Merged pull requests:**
+
+- ci: canary gh-automations\#104 \(supersede release proposals\) [\#45](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/pull/45) ([JarbasAl](https://github.com/JarbasAl))
+
 ## [0.1.9a3](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/tree/0.1.9a3) (2026-09-02)
 
 [Full Changelog](https://github.com/OpenVoiceOS/ovos-PHAL-plugin-ipgeo/compare/0.1.9a2...0.1.9a3)
